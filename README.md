@@ -17,10 +17,11 @@ The library was trained by [libfacedetection.train](https://github.com/ShiqiYu/l
 You can copy the files in directory src/ into your project,
 and compile them as the other files in your project.
 The source code is written in standard C/C++.
-It should be compiled at any platform which support C/C++.
+It should be compiled at any platform which supports C/C++.
 
 Some tips:
 
+  * Please add facedetection_export.h file in the position where you copy your facedetectcnn.h files, add #define FACEDETECTION_EXPORT to  facedetection_export.h file. See: [issues #222](https://github.com/ShiqiYu/libfacedetection/issues/222)
   * Please add -O3 to turn on optimizations when you compile the source code using g++.
   * Please choose 'Maximize Speed/-O2' when you compile the source code using Microsoft Visual Studio.
   * You can enable OpenMP to speedup. But the best solution is to call the detection function in different threads.
@@ -62,6 +63,12 @@ You can also compile the source code to a static or dynamic library, and then us
 * Minimal face size ~10x10
 * Raspberry Pi 3 B+, Broadcom BCM2837B0, Cortex-A53 (ARMv8) 64-bit SoC @ 1.4GHz
 -->
+
+## Performance on WIDER Face
+Run on default settings: scales=[1.], confidence_threshold=0.3, floating point:
+```
+AP_easy=0.849, AP_medium=0.816, AP_hard=0.601
+```
 
 ## Author
 * Shiqi Yu, <shiqi.yu@gmail.com>
